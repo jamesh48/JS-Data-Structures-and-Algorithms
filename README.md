@@ -1,1 +1,1 @@
-# JS-Sorting-Repo
+# JS-Data-Structures-and-Algorithms
