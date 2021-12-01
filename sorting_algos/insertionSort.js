@@ -39,4 +39,4 @@ const passing = testCaseResults.every((testCase) => {
   return ('[1,2,3,4,5]' === JSON.stringify(testCase))
 });
 
-console.log(passing === true ? 'passed insertion sort' : 'failed insertion sort');
+console.log(passing ? 'passed insertion sort' : 'failed insertion sort');
