@@ -1,4 +1,4 @@
-import { allCards, callersCard } from "./testCases/testOne";
+import { allCards, callersCard } from "./test/testCases/testOne";
 import {
   testDiagonalLeft,
   testDiagonalRight,
