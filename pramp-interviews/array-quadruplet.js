@@ -1,3 +1,5 @@
+// This solution finds the solution correctly but doesn't always find the first solution and also in the edge case of the args being [4, 4, 4, 4], 16 - fails.
+// 1/3/22
 function findArrayQuadruplet(arr, s) {
   // your code goes here
 
@@ -19,7 +21,6 @@ function findArrayQuadruplet(arr, s) {
           break;
         }
         hashed[computed] = [first, second, third];
-        console.log(hashed);
         if (hashed[s - computed]) {
           return hashed[computed].concat(s - computed);
         }
