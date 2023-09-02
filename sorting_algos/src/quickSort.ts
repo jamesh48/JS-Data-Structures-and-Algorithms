@@ -1,10 +1,14 @@
-const swapItems = (testCase, leftIndex, rightIndex) => {
+const swapItems = (
+  testCase: number[],
+  leftIndex: number,
+  rightIndex: number
+) => {
   let temp = testCase[leftIndex];
   testCase[leftIndex] = testCase[rightIndex];
   testCase[rightIndex] = temp;
 };
 
-const partition = (testCase, left, right) => {
+const partition = (testCase: number[], left: number, right: number) => {
   const pivot = testCase[Math.floor((right + left) / 2)];
   let i = left;
   let j = right;
@@ -27,8 +31,11 @@ const partition = (testCase, left, right) => {
   return i;
 };
 
-const quickSort = (testCase, leftIndex, rightIndex) => {
-  let i;
+const quickSort = (
+  testCase: number[],
+  leftIndex: number,
+  rightIndex: number
+) => {
   if (testCase.length > 1) {
     const index = partition(testCase, leftIndex, rightIndex);
     if (leftIndex < index - 1) {
@@ -42,19 +49,4 @@ const quickSort = (testCase, leftIndex, rightIndex) => {
   return testCase;
 };
 
-const testCases = [
-  [2, 5, 3, 4, 1],
-  [1, 2, 3, 4, 5],
-  [1, 2, 4, 3, 5],
-  [5, 4, 3, 2, 1]
-];
-
-const testCaseResults = testCases.map((testCase) => {
-  return quickSort(testCase, 0, testCase.length - 1);
-});
-
-const passing = testCaseResults.every((testCase) => {
-  return ('[1,2,3,4,5]' === JSON.stringify(testCase))
-});
-
-console.log(passing ? 'passed quick sort' : 'failed quick sort');
+export default quickSort;

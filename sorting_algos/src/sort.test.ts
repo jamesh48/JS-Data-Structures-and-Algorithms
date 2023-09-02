@@ -1,4 +1,9 @@
-import { iCantBelieveItCanSort, bubbleSort, insertionSort } from './index';
+import {
+  iCantBelieveItCanSort,
+  bubbleSort,
+  insertionSort,
+  quickSort,
+} from './index';
 
 /* Test Cases */
 const testCases = [
@@ -42,10 +47,20 @@ describe('Bubble Sort', () => {
 });
 
 describe('Insertion Sort', () => {
-  const testIdentifier = 'Bubble Sort';
+  const testIdentifier = 'Insertion Sort';
   testCases.forEach((testCase) => {
     test(`${testIdentifier} ${testCase.identifier}`, () => {
       const result = insertionSort(testCase.input);
+      expect(result).toEqual(testCase.expectedResult);
+    });
+  });
+});
+
+describe('Quick Sort', () => {
+  const testIdentifier = 'Quick Sort';
+  testCases.forEach((testCase) => {
+    test(`${testIdentifier} ${testCase.identifier}`, () => {
+      const result = quickSort(testCase.input, 0, testCase.input.length - 1);
       expect(result).toEqual(testCase.expectedResult);
     });
   });
