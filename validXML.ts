@@ -41,6 +41,8 @@ const main = () => {
         queue.pop()
         continue;
       }
+      // in the case of <foo></bar><foo> (closing bracket with no opening bracket)
+      return false;
     } else if (testArr[i].startsWith('<')) {
       queue.push(testArr[i]);
     }
