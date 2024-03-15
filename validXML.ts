@@ -3,8 +3,7 @@ const testCase = "<start>abcdefg</start><foo bar=\"test\">xxx<bar>aaa</bar>xxx</
 
 const filterChars = (str: string) => {
   // compare the letters of the tags, the split(' ')[0] at the end ensures that we only get the tag and not any attributes like <foo bar="test"> -> ['foo', 'bar="test"'] => ['foo'][0] -> foo
-  const test = str.split('').filter((char) => char !== '<' && char !== '>' && char !== '/').join('').split(' ')[0];
-  return test;
+  return str.split('').filter((char) => char !== '<' && char !== '>' && char !== '/').join('').split(' ')[0];
 }
 
 const main = () => {
