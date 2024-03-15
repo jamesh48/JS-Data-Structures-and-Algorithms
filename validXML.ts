@@ -19,6 +19,7 @@ const main = () => {
       testArr.push(opening.slice(opening.indexOf('<')).join(''));
       // Mutate the input to remove characters up to this point.
       split.splice(0, opening.length)
+      // reset back to 0 to chop off the next tag
       ptr = 0
     } else {
       ptr = ptr + 1;
