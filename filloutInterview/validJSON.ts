@@ -33,27 +33,29 @@ E - Brackets have to close each other, wellformed
 
 */
 
-
 const openingBrackets = ['(', '{', '['];
 const closingBrackets = [')', '}', ']'];
 const map: { [key: string]: string } = {
-'[': ']',
-'{': '}',
-'(': ')'
+  '[': ']',
+  '{': '}',
+  '(': ')',
 };
 
 // )))))))
 
-const main = () => {
-  const testCase = "([[[]]])";
+const validJSON = () => {
+  const testCase = '([[[]]])';
   const split = testCase.split('');
   const queue = [];
   for (let i = 0; i < split.length; i++) {
     if (openingBrackets.indexOf(split[i]) !== -1) {
       queue.push(split[i]);
-    } 
+    }
 
-    if (closingBrackets.indexOf(split[i]) !== -1 && map[queue[queue.length - 1]] === split[i]) {
+    if (
+      closingBrackets.indexOf(split[i]) !== -1 &&
+      map[queue[queue.length - 1]] === split[i]
+    ) {
       queue.pop();
       continue;
     }
@@ -61,10 +63,9 @@ const main = () => {
     if (closingBrackets.indexOf(split[i]) !== -1) {
       return false;
     }
-
   }
 
   return !queue.length;
-}
-const result = main()
-console.log(result)
+};
+const resultJSON = validJSON();
+console.log(resultJSON);

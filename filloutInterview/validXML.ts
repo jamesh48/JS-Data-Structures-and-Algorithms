@@ -1,26 +1,30 @@
-
-const testCase = "<start>abcdefg</start><foo bar=\"test\">xxx<bar>aaa</bar>xxx</foo><crux/>";
+const testCase =
+  '<start>abcdefg</start><foo bar="test">xxx<bar>aaa</bar>xxx</foo><crux/>';
 
 const filterChars = (str: string) => {
   // compare the letters of the tags, the split(' ')[0] at the end ensures that we only get the tag and not any attributes like <foo bar="test"> -> ['foo', 'bar="test"'] => ['foo'][0] -> foo
-  return str.split('').filter((char) => char !== '<' && char !== '>' && char !== '/').join('').split(' ')[0];
-}
+  return str
+    .split('')
+    .filter((char) => char !== '<' && char !== '>' && char !== '/')
+    .join('')
+    .split(' ')[0];
+};
 
-const main = () => {
-  const split = testCase.split('')
+const validXML = () => {
+  const split = testCase.split('');
   const testArr = [] as string[];
 
   let ptr = 0;
   // Parse the input, a "split" that removes characters between > and <
   while (split.length) {
     if (split[ptr] === '>') {
-      const opening = split.slice(0, ptr + 1)
+      const opening = split.slice(0, ptr + 1);
       // .indexOf('<') to remove any characters before '<', like <foo>aaa</foo> -> aaa</foo> -> </foo>
       testArr.push(opening.slice(opening.indexOf('<')).join(''));
       // Mutate the input to remove characters up to this point.
-      split.splice(0, opening.length)
+      split.splice(0, opening.length);
       // reset back to 0 to chop off the next tag
-      ptr = 0
+      ptr = 0;
     } else {
       ptr = ptr + 1;
     }
@@ -38,7 +42,7 @@ const main = () => {
       }
 
       if (filterChars(testArr[i]) === filterChars(queue[queue.length - 1])) {
-        queue.pop()
+        queue.pop();
         continue;
       }
       // in the case of <foo></bar><foo> (closing bracket with no opening bracket)
@@ -48,7 +52,7 @@ const main = () => {
     }
   }
   return !queue.length;
-}
+};
 
-const result = main();
-console.log(result);
+const resultXML = validXML();
+console.log(resultXML);
