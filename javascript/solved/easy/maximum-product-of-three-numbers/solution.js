@@ -25,5 +25,6 @@ var maximumProduct = function (nums) {
       reduceProduct(positiveNumbers)
     );
   }
-  return positiveNumbers.reduce((total, item) => total * item, 1);
+
+  return reduceProduct(positiveNumbers);
 };
