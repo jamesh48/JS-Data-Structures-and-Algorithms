@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "stats": "cd leetcode && node stats.js"
+    "stats": "cd leetcode && node stats.js",
+    "update": "node ./parsedCommit.js"
   },
   "keywords": [],
   "author": "",

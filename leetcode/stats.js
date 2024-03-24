@@ -9,7 +9,7 @@ const fs = require('fs').promises;
 ###### JS Easy Solved: ${easyJSFiles.length}
 ###### JS Medium Solved: ${mediumJSFiles.length}
 ###### JS Hard Solved: ${hardJSFiles.length}`;
-  await fs.writeFile('./STATS.md', data, 'utf-8');
+  await fs.writeFile('./README.md', data, 'utf-8');
 
   console.log(data.replaceAll('#', ''));
 })();
