@@ -1,0 +1,12 @@
+{
+  "name": "js-data-structures-and-algorithms",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "stats": "cd leetcode && node stats.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
